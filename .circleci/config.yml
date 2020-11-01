@@ -17,5 +17,8 @@ jobs:
   build:
     docker:
       - image: circleci/buildpack-deps:latest
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_ACCESS_TOKEN
     steps:
       - run: echo 'ok'
