@@ -1,9 +1,15 @@
 version: 2.1
 
+orbs:
+  welcome-orb: circleci/welcome-orb@volatile
+
 workflows:
   welcome:
     jobs:
       - build:
+          context:
+            - dockerhub-credentials
+      - welcome/run:
           context:
             - dockerhub-credentials
 
