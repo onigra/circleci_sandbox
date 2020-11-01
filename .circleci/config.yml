@@ -1,0 +1,18 @@
+version: 2.1
+
+workflows:
+  welcome:
+    jobs:
+      - build:
+          context:
+            - dockerhub-credentials
+
+jobs:
+  build:
+    docker:
+      - image: circleci/buildpack-deps:latest
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_ACCESS_TOKEN
+    steps:
+      - run: echo 'ok'
