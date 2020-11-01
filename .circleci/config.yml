@@ -1,10 +1,10 @@
 version: 2.1
 
 orbs:
-  welcome-orb: circleci/welcome-orb@volatile
+  welcome: circleci/welcome-orb@volatile
 
 workflows:
-  welcome:
+  test:
     jobs:
       - build:
           context:
