@@ -9,3 +9,5 @@ workflows:
       - slack/on-hold:
           context:
             - slack-notification
+            - custom-templates
+          template: CUSTOM_ON_HOLD
