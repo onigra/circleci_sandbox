@@ -1,21 +1,11 @@
 version: 2.1
 
 orbs:
-  slack: circleci/slack@volate
+  slack: circleci/slack@volatile
 
 workflows:
   welcome:
     jobs:
-      - build:
+      - slack/on-hold:
           context:
-            - dockerhub-credentials
-
-jobs:
-  build:
-    docker:
-      - image: circleci/buildpack-deps:latest
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_ACCESS_TOKEN
-    steps:
-      - run: echo 'ok'
+            - slack-notification
